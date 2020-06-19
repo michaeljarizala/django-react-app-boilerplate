@@ -1,0 +1,15 @@
+Django==3.0.7
+Pillow
+
+django-summernote
+passlib
+
+pytz==2018.4
+psycopg2-binary==2.7.7
+django-treebeard>=4.0,<5.0
+django-cors-headers==3.2.0
+djangorestframework==3.10.3
+
+channels
+
+django-rest-knox
