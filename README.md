@@ -1,6 +1,6 @@
 [![transpiron_logo](https://i.imgur.com/87CVVqX.png "Transpiron Logo")](https://transpiron.com)
 
-### Django-React-App-Boilerplate ```v.1.0.0```
+### Django-React-App-Boilerplate ```v.0.1.0```
 This boilerplate project is about integrating Django with React. The main purpose of this project is to help setup a development environment for building powerful websites with solid Django-based backend, coupled with the flexibility and impressive UI-centric features of React for frontend implementations.
 
 A project of [```Transpiron```](http://transpiron.com), initially designed by [```maikeruji```](http://maikeruji.com).
@@ -149,8 +149,16 @@ $ cd backend
 $ pip install -r requirements.txt
 ```
 
-- [x] Perform migrations
-> There are Django libraries we have installed with corresponding models. Thus, we need to migrate those into our default database connection (as defined in ```settings.py```)
+- [x] Make migration files for ```account_app```
+> If you want to implement the ```account_app``` application that is provided in this project, you will need to generate the migration files for the db tables as defined in its ```models.py``` file.
+> If you don't want to implement the said app, you may skip this step.
+```
+$ python manage.py makemigrations
+```
+
+- [x] Execute the migrations files
+> There are migration files that comes from some of the Django libraries we have installed. Thus, we must ```migrate``` those into our default database connection (as defined in ```settings.py```) so our project will work well inline with those libraries.
+> This will also execute the migrations files for ```account_app``` if you run the above ```makemigrations``` command.
 ```
 $ python manage.py migrate
 ```
@@ -190,8 +198,9 @@ The project defines ```SQLite 3``` as the default and only database connection e
 > Note: Database connection names must be unique - if you have one that is named 'default', you cannot define another connection with the same name.
 > Also, PostgreSQL is dependent on psycopg2-library (as already included in ```requirements.txt```). If you need to define a connection running on other engines (i.e. MySQL), you may need to install appropriate libraries or Python wheel.
 
+### Django Admin
+You may check Django's built-in admin portal by going to ```localhost:3000/admin```.  It is required that there is at least 1 superuser created. If you have not created any superuser yet, you may create one by running ```python manage.py createsuperuser```.
+
 ### Django Admin heading and title
 You may change ```site_heading```, ```site_title```, and ```index_title``` of the Django Admin portal to your liking via ```config/urls.py``` file.
 
-### Django Admin
-You may check Django's built-in admin portal by going to ```localhost:3000/admin```.  It is required that there is at least 1 superuser created. If you have not created any superuser yet, you may create one by running ```python manage.py createsuperuser```.
