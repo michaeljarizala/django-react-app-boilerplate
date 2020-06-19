@@ -1,6 +1,6 @@
 [![transpiron_logo](https://i.imgur.com/87CVVqX.png "Transpiron Logo")](https://transpiron.com)
 
-### Django-React-App-Boilerplate ```v.0.1.0```
+### Django-React-App-Boilerplate ```v.1.0.0```
 This boilerplate project is about integrating Django with React. The main purpose of this project is to help setup a development environment for building powerful websites with solid Django-based backend, coupled with the flexibility and impressive UI-centric features of React for frontend implementations.
 
 A project of [```Transpiron```](http://transpiron.com), initially designed by [```maikeruji```](http://maikeruji.com).
