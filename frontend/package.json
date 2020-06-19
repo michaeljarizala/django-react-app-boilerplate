@@ -1,0 +1,65 @@
+{
+  "name": "django-react-app-boilerplate",
+  "description": "This boilerplate project is about integrating Django with React. The main purpose of this project is to help setup a development environment for building powerful websites with solid Django-based backend, coupled with the flexibility and impressive UI-centric features of React for frontend implementations.",
+  "author": "Transpiron",
+  "contributors": [
+    {
+      "name": "Michael Jay Arizala",
+      "email": "michaeljarizala@gmail.com",
+      "url": "http://maikeruji.com"
+    }
+  ],
+  "version": "0.1.0",
+  "licenses": [
+    {
+      "type": "CC-BY-1.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+    }
+  ],
+  "private": true,
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "copyfiles": "^2.3.0",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.dev.js",
+    "build": "npm run webpack-build && npm run webpack-build-files-copy && npm run collectstatic",
+    "webpack-build": "webpack --config webpack.config.prod.js",
+    "webpack-build-files-copy": "copyfiles -f dist/static/main.bundle.min.js ../backend/staticfiles/js && copyfiles -f dist/static/main.bundle.min.js.map ../backend/staticfiles/js && copyfiles -f dist/static/main.bundle.min.css ../backend/staticfiles/css",
+    "collectstatic": "python ../backend/manage.py collectstatic --no-input"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
