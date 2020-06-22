@@ -11,8 +11,8 @@ media-cdn-local/*
 coverage/
 
 # production
-frontend/dist/
-!frontend/dist/index.html
+frontend/dist-build/*
+!frontend/dist-build/index.html
 
 # Virtual Environments
 # I've excluded 'venv' virtual env here since I created mine inside the project root and we don't want the files and subsequent changes in this folder to get included in the repository

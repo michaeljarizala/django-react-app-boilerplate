@@ -11,8 +11,8 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   entry: './src/index',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'static/[name].bundle.min.js',
+    path: path.resolve(__dirname, './dist-build'),
+    filename: 'static/js/[name].bundle.min.js',
   },
   module: {
     rules: [
@@ -67,7 +67,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(
       {
-        filename: "static/[name].bundle.min.css",
+        filename: "static/css/[name].bundle.min.css",
       }
     ),
     new OptimizeCSSAssetsPlugin({}),

@@ -44,7 +44,7 @@
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "npm run webpack-build && npm run webpack-build-files-copy && npm run collectstatic",
     "webpack-build": "webpack --config webpack.config.prod.js",
-    "webpack-build-files-copy": "copyfiles -f dist/static/main.bundle.min.js ../backend/staticfiles/js && copyfiles -f dist/static/main.bundle.min.js.map ../backend/staticfiles/js && copyfiles -f dist/static/main.bundle.min.css ../backend/staticfiles/css",
+    "webpack-build-files-copy": "copyfiles -f dist-build/static/js/* ../backend/staticfiles/js && copyfiles -f dist-build/static/css/* ../backend/staticfiles/css",
     "collectstatic": "python ../backend/manage.py collectstatic --no-input"
   },
   "eslintConfig": {
