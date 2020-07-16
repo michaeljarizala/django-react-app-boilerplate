@@ -1,6 +1,7 @@
+
 [![transpiron_logo](https://i.imgur.com/87CVVqX.png "Transpiron Logo")](https://transpiron.com)
 
-### Django-React-App-Boilerplate ```v.1.0.0```
+### Django-React-App-Boilerplate ```v.1.0.1```
 This boilerplate project is about integrating Django with React. The main purpose of this project is to help setup a development environment for building powerful websites with solid Django-based backend, coupled with the flexibility and impressive UI-centric features of React for frontend implementations.
 
 A project of [```Transpiron```](http://transpiron.com), initially designed by [```maikeruji```](http://maikeruji.com).
@@ -64,9 +65,10 @@ The project is made in the following directory structure:
 |	+-- manage.py
 |	+-- requirements.txt
 +-- _frontend
-|	+-- _dist
+|	+-- _dist-build
 |	+-- _node_modules
 |	+-- _src
+|	|	+-- index.html
 |	+-- babel.rc
 |	+-- package-lock.json
 |	+-- package.json
@@ -99,9 +101,9 @@ This folder contains all essential Django codebase with the following files and 
 
 #### frontend
 This main folder contains all essential frontend configuration and React codebase, with the following files and folders:
-- **```dist```** contains our build/distribution files for deployment.
-- -**```node_modules```** is where the libraries we've installed from npm reside
-- **```src```** contains the actual frontend codebase/source code such as your ```JSX components```, css styles that should be part of the main css bundle, etc.
+- **```dist-build```** contains our build/distribution files for deployment. During production, this contains the `index.html` where your server should point to as the main entry point of your UI.
+- **```node_modules```** is where the libraries we've installed from npm reside
+- **```src```** contains the actual frontend codebase/source code such as your ```JSX components```, css styles that should be part of the main css bundle, etc. This also contains the `index.html` which serves as the main entry point of the UI for development.
 - **```babel.rc```** file that configures our babel implementation
 - **```package.json```** contains the metadata of your project and other configurations such as managing npm dependencies, scripts, etc.
 - **```package-lock.json```** describes the exact tree that was generated, such that subsequent installs are able to generate identical trees, regardless of intermediate dependency updates [[source]]([https://docs.npmjs.com/configuring-npm/package-lock-json.html](https://docs.npmjs.com/configuring-npm/package-lock-json.html)).
@@ -137,7 +139,7 @@ $ git remote remove origin
 $ py -m venv your_desired_virtual_env_name
 $ your_desired_virtual_env_name/Scripts/activate.bat
 ```
->*In this example, we use Python's built-in ```venv``` for managing our virtual environments, but you may use a different one such as ```virtualenvwrapper```, etc*.*
+>*In this example, we use Python's built-in ```venv``` for managing our virtual environments, but you may use a different one such as ```virtualenvwrapper```*.*
 >
 > Note:  If you are going to be creating your virtual environment inside the project folder, consider adding the folder to ```.gitignore``` file so changes to any inner files and folders are not tracked by Git.
 
@@ -156,15 +158,15 @@ $ pip install -r requirements.txt
 $ python manage.py makemigrations
 ```
 
-- [x] Execute the migrations files
-> There are migration files that comes from some of the Django libraries we have installed. Thus, we must ```migrate``` those into our default database connection (as defined in ```settings.py```) so our project will work well inline with those libraries.
-> This will also execute the migrations files for ```account_app``` if you run the above ```makemigrations``` command.
+- [x] Execute the migration files
+> There are migration files that come from some of the Django libraries we have installed. Thus, we must ```migrate``` those into our default database connection (as defined in ```settings.py```) so our project will work well inline with those libraries.
+> This will also execute the migration files for ```account_app``` if you run the above ```makemigrations``` command.
 ```
 $ python manage.py migrate
 ```
 
 - [x] Perform ```collectstatic```
-> There are Django libraries we have installed with corresponding assets such ```django-summernote``` and Django's admin app. We need to perform the ```collectstatic``` command to make those files available in our ```static-cdn-local``` for production use.
+> There are Django libraries we have installed with corresponding assets such as ```django-summernote``` and Django's admin app. We need to perform the ```collectstatic``` command to make those files available in our ```static-cdn-local``` for development and production use.
 ```
 $ python manage.py collectstatic
 ```
