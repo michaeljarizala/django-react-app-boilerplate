@@ -7,6 +7,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
+  output: {
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
@@ -58,7 +61,6 @@ module.exports = {
     ),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
-      filename: "./index.html"
     })
   ],
   resolve: {
@@ -75,9 +77,16 @@ module.exports = {
   },
   devServer: {
     contentBase: false,
+    hot: true,
     compress: true,
+    https: true,
     port: 3001,
+    historyApiFallback: true,
     proxy: {
+      '/admin': {
+        target: 'http://localhost:3000',
+        secure: false,
+      },
       '/static': {
         target: 'http://localhost:3000',
         secure: false
